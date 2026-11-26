@@ -47,6 +47,7 @@ def add(parent, child, expand=False):
 def label(text='', cls=None):
     w=Gtk.Label(label=text);w.set_xalign(0)
     if cls: w.get_style_context().add_class(cls)
+    if cls in ('heading','brand'): w.set_halign(Gtk.Align.START);w.set_valign(Gtk.Align.CENTER)
     return w
 
 def button(text, callback, cls=None):
@@ -141,7 +142,7 @@ class Shell:
         root=box(True,18,'surface');root.set_border_width(8)
         top=Gtk.Grid(column_spacing=22,row_spacing=22);top.set_column_homogeneous(True)
         clock=card(None,'clock-card');row=box()
-        add(row,label('relógio','heading'),True);self.date=add(row,label('','heading'));add(clock,row)
+        add(row,label('relógio','heading'),True);self.date=add(row,label('','muted'));self.date.set_halign(Gtk.Align.END);add(clock,row)
         self.clock=add(clock,label('','clock'),True)
         self.stats=add(clock,label('cpu …   mem …   up …','stats'))
         top.attach(clock,0,0,2,1)
@@ -163,16 +164,16 @@ class Shell:
         for text,action in [('⏮','previous'),('Ⅱ','play-pause'),('⏭','next')]: add(row,button(text,lambda a=action:launch('playerctl',a),'ghost'),True)
         add(media,row);top.attach(media,3,0,1,1);add(root,top)
         bottom=Gtk.Grid(column_spacing=22);bottom.set_column_homogeneous(True)
-        tasks=card(None);row=box();add(row,label('tarefas','heading'),True);self.task_count=add(row,label('','heading'));add(tasks,row)
+        tasks=card(None);row=box();add(row,label('tarefas','heading'),True);self.task_count=add(row,label('','muted'));add(tasks,row)
         self.task_box=box(True,0);scroll=Gtk.ScrolledWindow();scroll.set_policy(Gtk.PolicyType.NEVER,Gtk.PolicyType.AUTOMATIC);scroll.set_min_content_height(215);scroll.add(self.task_box);add(tasks,scroll,True)
         add(tasks,label('nova tarefa','muted'));self.entry=Gtk.Entry();self.entry.set_placeholder_text('❯ escreva e tecle enter');self.entry.connect('activate',self.add_task);add(tasks,self.entry)
         bottom.attach(tasks,0,0,1,1)
         cal=card(None);row=box();add(row,label('calendário','heading'),True)
-        add(row,button('‹',lambda:self.change_month(-1),'small'));self.month=add(row,label('','heading'));add(row,button('›',lambda:self.change_month(1),'small'));add(cal,row)
+        add(row,button('‹',lambda:self.change_month(-1),'small'));self.month=add(row,label('','muted'));add(row,button('›',lambda:self.change_month(1),'small'));add(cal,row)
         now=dt.date.today();self.cal_year=now.year;self.cal_month=now.month
         self.cal_grid=Gtk.Grid(column_spacing=5,row_spacing=5);self.cal_grid.set_column_homogeneous(True);self.cal_grid.set_row_homogeneous(True);add(cal,self.cal_grid,True)
         self.cal_hint=add(cal,label('','muted'));self.render_calendar();bottom.attach(cal,1,0,1,1);add(root,bottom,True)
-        footer=box(False,0,'footer');add(footer,label('carbon workstation','brand'),True)
+        footer=box(False,0,'footer');add(footer,label('carbon workstation','brand'));add(footer,Gtk.Box(),True)
         for text,cmd in [('Apps','launcher'),('Área de transferência','clipboard'),('Foco · F8','focus')]: add(footer,button(text,lambda c=cmd:(self.hide(),launch(str(ROOT/'control'),c)),'ghost'))
         add(footer,button('Fechar · esc',self.hide,'ghost'));add(root,footer)
         self.window('dashboard',root,1100,740)

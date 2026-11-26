@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Waybar workspace buttons for Hyprland's Lua config.
+
+Waybar's hyprland/workspaces sends the legacy `dispatch workspace N`, which the Lua config
+no longer parses, so clicks land on the wrong workspace. These buttons switch through
+`hl.dsp.focus`, and redraw on Hyprland events (socket2), with no polling.
+
+  ws N          print the Waybar JSON for workspace N
+  ws N --go     focus workspace N
+  ws --listen   forward Hyprland workspace events to Waybar (RTMIN+8)
+"""
+import json, os, socket, subprocess, sys, time
+
+def hyprctl(*args):
+    try: return subprocess.run(['hyprctl', *args], capture_output=True, text=True, timeout=2).stdout
+    except (OSError, subprocess.SubprocessError): return ''
+
+def show(n):
+    try:
+        mons = json.loads(hyprctl('-j', 'monitors') or '[]')
+        spaces = json.loads(hyprctl('-j', 'workspaces') or '[]')
+    except ValueError:
+        mons, spaces = [], []
+    focused = next((m['activeWorkspace']['id'] for m in mons if m.get('focused')), None)
+    visible = {m['activeWorkspace']['id'] for m in mons}
+    windows = next((w['windows'] for w in spaces if w['id'] == n), 0)
+    cls = 'active' if n == focused else 'visible' if n in visible else 'occupied' if windows else 'empty'
+    print(json.dumps({'text': str(n), 'class': cls, 'tooltip': f'workspace {n} · {windows} janela(s)'}))
+
+def go(n):
+    hyprctl('eval', f'hl.dispatch(hl.dsp.focus({{ workspace = {int(n)} }}))')
+
+def listen():
+    runtime = os.environ.get('XDG_RUNTIME_DIR', f'/run/user/{os.getuid()}')
+    sig = os.environ.get('HYPRLAND_INSTANCE_SIGNATURE', '')
+    path = os.path.join(runtime, 'hypr', sig, '.socket2.sock')
+    wanted = ('workspace', 'focusedmon', 'openwindow', 'closewindow', 'movewindow', 'createworkspace', 'destroyworkspace', 'moveworkspace')
+    while True:
+        try:
+            with socket.socket(socket.AF_UNIX) as s:
+                s.connect(path)
+                buf = b''
+                while True:
+                    chunk = s.recv(4096)
+                    if not chunk: break
+                    buf += chunk
+                    *lines, buf = buf.split(b'\n')
+                    if any(l.split(b'>>')[0].decode(errors='ignore').startswith(wanted) for l in lines):
+                        subprocess.run(['pkill', '-RTMIN+8', '-x', 'waybar'])
+        except OSError:
+            pass
+        time.sleep(1)   # reconnect after a compositor restart
+
+if __name__ == '__main__':
+    a = sys.argv[1:]
+    if a == ['--listen']: listen()
+    elif len(a) == 2 and a[1] == '--go': go(int(a[0]))
+    elif len(a) == 1 and a[0].isdigit(): show(int(a[0]))
+    else: raise SystemExit(__doc__)

@@ -87,6 +87,8 @@ def main():
         run('systemctl','--user','start','swaync.service')
         for app in ['waybar','swaync']:
             if not text('pgrep','-x',app):daemon([app],app)
+        # Workspace buttons redraw on Hyprland events (see scripts/ws).
+        if not text('pgrep','-f',str(ROOT/'scripts/ws')+' --listen'):daemon([str(ROOT/'scripts/ws'),'--listen'],'ws')
     elif cmd in ('dashboard','widgets','hide','osd'):message(args,start=cmd!='hide')
     elif cmd=='stop':
         message(args,start=False)

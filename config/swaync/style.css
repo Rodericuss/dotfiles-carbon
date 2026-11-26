@@ -13,7 +13,7 @@
 
 /* title */
 .widget-title { margin: 0 0 16px; }
-.widget-title > label { color: #f2f4f8; font-size: 16px; font-weight: 600; }
+.widget-title > label { color: #161616; background: #3ddbd9; font-size: 14px; font-weight: 600; padding: 4px 10px; }
 .widget-title > button { background: transparent; color: #78a9ff; border: 0; font-size: 13px; padding: 4px 8px; min-width: 0; }
 .widget-title > button:hover { background: #333333; color: #a6c8ff; }
 
@@ -24,7 +24,8 @@
 .widget-buttons-grid flowboxchild > button { background: #393939; color: #a8a8a8; border: 0; border-bottom: 2px solid #393939; padding: 12px 0; min-width: 0; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
 .widget-buttons-grid flowboxchild > button label { color: inherit; }
 .widget-buttons-grid flowboxchild > button:hover { background: #4c4c4c; color: #f2f4f8; }
-.widget-buttons-grid flowboxchild > button.toggle:checked { background: #393939; color: #f2f4f8; border-bottom-color: #78a9ff; }
+.widget-buttons-grid flowboxchild > button.toggle:checked { background: #78a9ff; color: #161616; border-bottom-color: #78a9ff; }
+.widget-buttons-grid flowboxchild > button.toggle:checked:hover { background: #a6c8ff; border-bottom-color: #a6c8ff; }
 
 /* sliders: 2px track, filled in blue, square thumb */
 .widget-volume, .widget-backlight { background: transparent; padding: 0; margin: 0 0 8px; }

@@ -54,9 +54,11 @@ def render(w, h, path, user, net, kb):
 
     # header, same as the Waybar shell header
     rect(cr, RULE, 0, 32, w, 1)
-    x = text(cr, 'carbon ', 16, 21, 14, TEXT, weight='SemiBold')
-    text(cr, 'workstation', x, 21, 14, MUTED)
-    rect(cr, RULE, x + 88, 0, 1, 32)
+    probe = cairo.Context(cairo.ImageSurface(cairo.FORMAT_RGB24, 1, 1))
+    brand_w = text(probe, 'workstation', text(probe, 'carbon ', 16, 21, 14, BG, weight='SemiBold'), 21, 14, BG) + 16
+    rect(cr, TEAL, 0, 0, brand_w, 32)   # cyan brand cell, as in the Waybar header
+    x = text(cr, 'carbon ', 16, 21, 14, BG, weight='SemiBold')
+    text(cr, 'workstation', x, 21, 14, BG)
 
     # sign-in tile: 480 wide on layer 01, form inside with 24px padding
     tx, ty, tw, th = X(720), Y(540), 480, 232

@@ -67,10 +67,10 @@ inputbar {
     border-color: @faint;
 }
 textbox-prompt-colon {
-    str: "❯";
+    str: " ❯ ";
     font: "IBM Plex Mono 11";
-    background-color: inherit;
-    text-color: @blue;
+    background-color: #3ddbd9;
+    text-color: #161616;
 }
 entry {
     background-color: inherit;

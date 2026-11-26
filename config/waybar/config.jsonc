@@ -7,7 +7,11 @@
   "spacing": 0,
   "modules-left": [
     "custom/dashboard",
-    "hyprland/workspaces",
+    "custom/ws#w1",
+    "custom/ws#w2",
+    "custom/ws#w3",
+    "custom/ws#w4",
+    "custom/ws#w5",
     "hyprland/window"
   ],
   "modules-center": [],
@@ -22,14 +26,45 @@
     "custom/clock"
   ],
   "custom/dashboard": {
-    "format": "carbon <span weight=\"400\" foreground=\"#a8a8a8\">workstation</span>",
+    "format": "carbon <span weight=\"400\">workstation</span>",
     "on-click": "~/.config/carbon/control dashboard",
     "tooltip-format": "Painel · Super + Tab"
   },
-  "hyprland/workspaces": {
-    "format": "{name}",
-    "on-click": "activate",
-    "persistent-workspaces": { "*": [1, 2, 3, 4, 5] }
+  // Workspace buttons: Waybar's hyprland/workspaces sends the legacy dispatch, which the Lua config rejects.
+  "custom/ws#w1": {
+    "exec": "~/.config/carbon/scripts/ws 1",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "on-click": "~/.config/carbon/scripts/ws 1 --go"
+  },
+  "custom/ws#w2": {
+    "exec": "~/.config/carbon/scripts/ws 2",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "on-click": "~/.config/carbon/scripts/ws 2 --go"
+  },
+  "custom/ws#w3": {
+    "exec": "~/.config/carbon/scripts/ws 3",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "on-click": "~/.config/carbon/scripts/ws 3 --go"
+  },
+  "custom/ws#w4": {
+    "exec": "~/.config/carbon/scripts/ws 4",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "on-click": "~/.config/carbon/scripts/ws 4 --go"
+  },
+  "custom/ws#w5": {
+    "exec": "~/.config/carbon/scripts/ws 5",
+    "return-type": "json",
+    "signal": 8,
+    "interval": "once",
+    "on-click": "~/.config/carbon/scripts/ws 5 --go"
   },
   "hyprland/window": {
     "format": "<span foreground=\"#6f6f6f\">/</span>  {}",
@@ -82,14 +117,10 @@
     "return-type": "json",
     "format": "{icon} avisos {}",
     "format-icons": {
-      "notification": "<span foreground=\"#ee5396\">■</span>",
-      "none": "<span foreground=\"#525252\">■</span>",
-      "dnd-notification": "<span foreground=\"#ff832b\">■</span>",
-      "dnd-none": "<span foreground=\"#ff832b\">□</span>",
-      "inhibited-notification": "<span foreground=\"#ee5396\">■</span>",
-      "inhibited-none": "<span foreground=\"#525252\">■</span>",
-      "dnd-inhibited-notification": "<span foreground=\"#ff832b\">■</span>",
-      "dnd-inhibited-none": "<span foreground=\"#ff832b\">□</span>"
+      "notification": "■", "none": "□",
+      "dnd-notification": "■", "dnd-none": "□",
+      "inhibited-notification": "■", "inhibited-none": "□",
+      "dnd-inhibited-notification": "■", "dnd-inhibited-none": "□"
     },
     "on-click": "swaync-client -t",
     "on-click-right": "swaync-client -d",
