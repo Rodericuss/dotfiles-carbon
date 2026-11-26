@@ -56,7 +56,7 @@ def render(w, h, path, user, net, kb):
     rect(cr, RULE, 0, 32, w, 1)
     probe = cairo.Context(cairo.ImageSurface(cairo.FORMAT_RGB24, 1, 1))
     brand_w = text(probe, 'workstation', text(probe, 'carbon ', 16, 21, 14, BG, weight='SemiBold'), 21, 14, BG) + 16
-    rect(cr, TEAL, 0, 0, brand_w, 32)   # cyan brand cell, as in the Waybar header
+    rect(cr, '#ee5396', 0, 0, brand_w, 32)   # brand cell, as in the Waybar header
     x = text(cr, 'carbon ', 16, 21, 14, BG, weight='SemiBold')
     text(cr, 'workstation', x, 21, 14, BG)
 

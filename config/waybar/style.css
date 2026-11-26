@@ -7,8 +7,8 @@ tooltip { background: #393939; border: 0; }
 tooltip label { color: #f2f4f8; font-family: "IBM Plex Sans", sans-serif; font-size: 12px; }
 
 /* header name: "carbon workstation", Plex Sans, separated by a rule */
-#custom-dashboard { font-family: "IBM Plex Sans", sans-serif; font-size: 14px; font-weight: 600; color: #161616; background: #3ddbd9; padding: 0 16px; }
-#custom-dashboard:hover { background: #82cfff; }
+#custom-dashboard { font-family: "IBM Plex Sans", sans-serif; font-size: 14px; font-weight: 600; color: #161616; background: #ee5396; padding: 0 16px; }
+#custom-dashboard:hover { background: #ff7eb6; }
 
 /* header nav: workspace buttons; the focused one is filled blue */
 #custom-ws { min-width: 32px; padding: 0 12px; color: #6f6f6f; }
@@ -26,7 +26,8 @@ window#waybar.empty #window { padding: 0; }
 #mpris, #cpu, #memory, #custom-volume, #network, #custom-tailnet, #custom-notifications, #battery { padding: 0 12px; border-left: 1px solid #262626; }
 #mpris { color: #c6c6c6; }
 #cpu.warning, #memory.warning { background: #ff832b; color: #161616; }
-#cpu.critical, #memory.critical { background: #ee5396; color: #161616; }
+#cpu.critical { background: #ee5396; color: #161616; }
+#memory.critical { background: #3ddbd9; color: #161616; }
 #network.disconnected { color: #6f6f6f; }
 #custom-volume.muted { color: #6f6f6f; }
 #custom-tailnet.down, #custom-tailnet.unavailable { color: #6f6f6f; }

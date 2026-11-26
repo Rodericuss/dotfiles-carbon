@@ -13,7 +13,7 @@
 
 /* title */
 .widget-title { margin: 0 0 16px; }
-.widget-title > label { color: #161616; background: #3ddbd9; font-size: 14px; font-weight: 600; padding: 4px 10px; }
+.widget-title > label { color: #161616; background: #ee5396; font-size: 14px; font-weight: 600; padding: 4px 10px; }
 .widget-title > button { background: transparent; color: #78a9ff; border: 0; font-size: 13px; padding: 4px 8px; min-width: 0; }
 .widget-title > button:hover { background: #333333; color: #a6c8ff; }
 

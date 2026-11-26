@@ -6,7 +6,7 @@ window { background: transparent; }
 .card { background: #262626; padding: 16px; border: 0; }
 .heading { font-family: "IBM Plex Mono", monospace; color: #a8a8a8; font-size: 12px; font-weight: 400; }
 .muted { color: #a8a8a8; font-size: 12px; font-family: "IBM Plex Mono", monospace; }
-.brand { font-weight: 600; font-size: 14px; color: #161616; background: #3ddbd9; padding: 6px 12px; }
+.brand { font-weight: 600; font-size: 14px; color: #161616; background: #ee5396; padding: 6px 12px; }
 .clock { color: #f2f4f8; font-size: 96px; font-weight: 300; letter-spacing: -1px; }
 .stats { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: #c6c6c6; padding: 8px 0 0; border-top: 1px solid #393939; }
 .card > .heading, .card > box > .heading:first-child { color: #161616; background: #a8a8a8; padding: 2px 8px; }
