@@ -1,0 +1,8 @@
+#!/bin/sh
+# Live text for the lock screen (called from hyprlock.conf).
+case "$1" in
+ date)  LC_ALL=pt_BR.UTF-8 date +'%A, %d de %B' ;;
+ since) printf '<span foreground="#FF832B">■</span> travado desde %s\n' "$(date +'%H:%M')" ;;
+ bat)   c=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null) || exit 0
+        printf 'bat <span foreground="#F2F4F8">%s%%</span>\n' "$c" ;;
+esac

@@ -1,0 +1,52 @@
+# Carbon / Oxocarbon prompt: breadcrumb line, then the app's ❯ prompt.
+add_newline = true
+format = "$directory$git_branch$git_status$elixir$nodejs$python$rust$lua$status$cmd_duration$line_break$character"
+[directory]
+style = "bold #f2f4f8"
+repo_root_style = "bold #f2f4f8"
+before_repo_root_style = "#a8a8a8"
+format = "[$path]($style)[$read_only]($read_only_style) "
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 4
+truncation_symbol = "…/"
+read_only = " ro"
+read_only_style = "#ff832b"
+[git_branch]
+symbol = ""
+style = "#be95ff"
+format = "[/](#6f6f6f) [$symbol$branch]($style) "
+[git_status]
+style = "#ff832b"
+format = "([$all_status$ahead_behind]($style) )"
+modified = "±$count"
+untracked = "?$count"
+staged = "+$count"
+ahead = "↑$count"
+behind = "↓$count"
+[elixir]
+style = "#6f6f6f"
+format = "[· ex $version]($style) "
+[nodejs]
+style = "#6f6f6f"
+format = "[· node $version]($style) "
+[python]
+style = "#6f6f6f"
+format = "[· py $version]($style) "
+[rust]
+style = "#6f6f6f"
+format = "[· rs $version]($style) "
+[lua]
+style = "#6f6f6f"
+format = "[· lua $version]($style) "
+[status]
+disabled = false
+style = "#ee5396"
+format = "[× $status]($style) "
+[cmd_duration]
+min_time = 1000
+style = "#a8a8a8"
+format = "[· $duration]($style) "
+[character]
+success_symbol = "[❯](#78a9ff)"
+error_symbol = "[❯](#ee5396)"
+vimcmd_symbol = "[❮](#42be65)"

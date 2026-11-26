@@ -1,0 +1,22 @@
+/* Carbon — compact Firefox chrome, Oxocarbon palette. */
+:root { --mf-bg:#161616; --mf-panel:#161616; --mf-line:#393939; --mf-fg:#f2f4f8; --toolbar-bgcolor:#161616 !important; --toolbar-color:#f2f4f8 !important; --lwt-text-color:#f2f4f8 !important; --lwt-accent-color:#161616 !important; --toolbar-field-background-color:#262626 !important; --toolbar-field-color:#f2f4f8 !important; --toolbar-field-focus-background-color:#262626 !important; --toolbar-field-focus-color:#f2f4f8 !important; --arrowpanel-background:#161616 !important; --arrowpanel-color:#f2f4f8 !important; --arrowpanel-border-color:#393939 !important; color-scheme:dark !important; }
+#main-window,#navigator-toolbox,#nav-bar,#PersonalToolbar,#sidebar-box,#sidebar-main,#sidebar-header { background:var(--mf-panel) !important; color:var(--mf-fg) !important; }
+#navigator-toolbox { border-bottom:1px solid #393939 !important; }
+#urlbar[open] .urlbarView { background:#262626 !important; }
+#nav-bar { padding:3px 8px !important; }
+#TabsToolbar { display:none !important; }
+#sidebar-header { display:none !important; }
+#sidebar-box { min-width:210px !important; max-width:320px !important; width:240px !important; border:0 !important; }
+#sidebar-splitter { width:1px !important; background:#393939 !important; border:0 !important; }
+#urlbar,#searchbar { font:13px "IBM Plex Mono",monospace !important; }
+#urlbar-background,#searchbar { background:#262626 !important; border:0 !important; border-bottom:1px solid #6f6f6f !important; border-radius:0 !important; box-shadow:none !important; }
+#urlbar[focused] #urlbar-background { outline:2px solid #f2f4f8 !important; outline-offset:-2px !important; border-bottom-color:transparent !important; }
+#urlbar-input,#urlbar-scheme { color:#f2f4f8 !important; caret-color:#f2f4f8 !important; }
+#urlbar[open] .urlbarView { background:#161616 !important; color:#f2f4f8 !important; border-radius:0 !important; }
+.urlbarView-row[selected] .urlbarView-row-inner { background:#393939 !important; color:#f2f4f8 !important; border-radius:0 !important; box-shadow:inset 3px 0 #78a9ff !important; }
+.toolbarbutton-1 { color:#c6c6c6 !important; fill:#c6c6c6 !important; }
+.toolbarbutton-1 > .toolbarbutton-icon,.toolbarbutton-1 > .toolbarbutton-badge-stack { border-radius:0 !important; }
+#PersonalToolbar { font:12px "IBM Plex Sans",sans-serif !important; padding:0 8px !important; }
+#PersonalToolbar .bookmark-item { color:#a8a8a8 !important; border-radius:0 !important; }
+panel,menupopup { --panel-background:#161616 !important; --panel-color:#f2f4f8 !important; --panel-border-color:#393939 !important; --panel-border-radius:0 !important; }
+#urlbar, #urlbar .urlbar-input-container, #urlbar-background { border-radius:0 !important; box-shadow:none !important; }

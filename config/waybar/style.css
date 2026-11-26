@@ -1,0 +1,39 @@
+/* Carbon g100 header. Square, flat, 1px rules; IBM Plex Sans for names, Plex Mono for data. */
+* { font-family: "IBM Plex Mono", "GeistMono Nerd Font", monospace; font-size: 12px; font-weight: 400; min-height: 0; border-radius: 0; color: #a8a8a8; box-shadow: none; text-shadow: none; }
+window#waybar { background: #161616; border-bottom: 1px solid #393939; }
+window#waybar.hidden { opacity: 0; }
+button { border: 0; padding: 0; background: transparent; }
+tooltip { background: #393939; border: 0; }
+tooltip label { color: #f2f4f8; font-family: "IBM Plex Sans", sans-serif; font-size: 12px; }
+
+/* header name: "carbon workstation", Plex Sans, separated by a rule */
+#custom-dashboard { font-family: "IBM Plex Sans", sans-serif; font-size: 14px; font-weight: 600; color: #f2f4f8; padding: 0 16px; border-right: 1px solid #393939; }
+#custom-dashboard:hover { background: #262626; }
+
+/* header nav: workspaces as menu items, active marked by a 2px blue rule at the bottom */
+#workspaces { border-right: 1px solid #393939; }
+#workspaces button { min-width: 32px; padding: 0 4px; color: #6f6f6f; border-bottom: 2px solid transparent; border-top: 2px solid transparent; }
+#workspaces button label { color: inherit; }
+#workspaces button:not(.empty) { color: #c6c6c6; }
+#workspaces button.active { background: #262626; color: #f2f4f8; border-bottom-color: #78a9ff; }
+#workspaces button.urgent { color: #ee5396; border-bottom-color: #ee5396; }
+#workspaces button:hover { background: #393939; color: #f2f4f8; }
+
+#window { color: #a8a8a8; padding: 0 16px; }
+window#waybar.empty #window { padding: 0; }
+
+/* global actions: label in secondary text, value in primary text */
+#mpris, #cpu, #memory, #custom-volume, #network, #custom-tailnet, #custom-notifications, #battery { padding: 0 12px; border-left: 1px solid #262626; }
+#mpris { color: #c6c6c6; }
+#cpu.warning, #memory.warning { color: #ff832b; }
+#cpu.critical, #memory.critical { color: #ee5396; }
+#network.disconnected { color: #6f6f6f; }
+#custom-volume.muted { color: #6f6f6f; }
+#custom-tailnet.down, #custom-tailnet.unavailable { color: #6f6f6f; }
+#custom-notifications.notification { color: #f2f4f8; }
+#mpris:hover, #custom-volume:hover, #network:hover, #custom-tailnet:hover, #custom-notifications:hover { background: #262626; }
+
+/* clock: the last header cell, on layer 01 */
+#custom-clock { background: #262626; color: #f2f4f8; padding: 0 16px; border-left: 1px solid #393939; }
+#custom-clock:hover { background: #393939; }
+#battery.critical { color: #ee5396; }

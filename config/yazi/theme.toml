@@ -1,0 +1,118 @@
+# Carbon — Yazi. Oxocarbon palette; selection on layer 02 with a blue indicator, square edges.
+[mgr]
+cwd = { fg = "#f2f4f8", bold = true }
+hovered = { fg = "#f2f4f8", bg = "#393939", bold = true }
+preview_hovered = { fg = "#f2f4f8", bg = "#393939" }
+find_keyword = { fg = "#ff7eb6", bold = true, underline = true }
+find_position = { fg = "#ff832b", bg = "#262626", bold = true }
+symlink_target = { fg = "#3ddbd9", italic = true }
+marker_copied = { fg = "#78a9ff", bg = "#78a9ff" }
+marker_cut = { fg = "#ff7eb6", bg = "#ff7eb6" }
+marker_marked = { fg = "#3ddbd9", bg = "#3ddbd9" }
+marker_selected = { fg = "#78a9ff", bg = "#78a9ff" }
+count_copied = { fg = "#161616", bg = "#78a9ff" }
+count_cut = { fg = "#161616", bg = "#ff7eb6" }
+count_selected = { fg = "#161616", bg = "#78a9ff", bold = true }
+border_symbol = "│"
+border_style = { fg = "#393939" }
+syntect_theme = "~/.config/bat/themes/Carbon.tmTheme"
+[indicator]
+preview = { fg = "#f2f4f8", bg = "#262626" }
+parent = { fg = "#dde1e6", bg = "#393939" }
+current = { fg = "#78a9ff", bg = "#393939" }
+padding = { open = " ", close = " " }
+[tabs]
+active = { fg = "#f2f4f8", bg = "#393939", bold = true }
+inactive = { fg = "#a8a8a8", bg = "#262626" }
+sep_inner = { open = " ", close = " " }
+sep_outer = { open = "", close = "" }
+[mode]
+normal_main = { fg = "#161616", bg = "#78a9ff", bold = true }
+normal_alt = { fg = "#dde1e6", bg = "#262626" }
+select_main = { fg = "#161616", bg = "#3ddbd9", bold = true }
+select_alt = { fg = "#3ddbd9", bg = "#262626" }
+unset_main = { fg = "#161616", bg = "#ff7eb6", bold = true }
+unset_alt = { fg = "#ff7eb6", bg = "#262626" }
+[status]
+overall = { fg = "#dde1e6", bg = "#262626" }
+sep_left = { open = "", close = " " }
+sep_right = { open = " ", close = "" }
+perm_sep = { fg = "#6f6f6f" }
+perm_type = { fg = "#78a9ff" }
+perm_read = { fg = "#3ddbd9" }
+perm_write = { fg = "#ff7eb6" }
+perm_exec = { fg = "#78a9ff" }
+progress_label = { fg = "#f2f4f8", bold = true }
+progress_normal = { fg = "#78a9ff", bg = "#393939" }
+progress_error = { fg = "#ee5396", bg = "#393939" }
+[which]
+cols = 3
+mask = { bg = "#161616" }
+cand = { fg = "#78a9ff" }
+rest = { fg = "#78a9ff" }
+desc = { fg = "#dde1e6" }
+separator = " → "
+separator_style = { fg = "#6f6f6f" }
+[confirm]
+border = { fg = "#78a9ff" }
+title = { fg = "#ff7eb6", bold = true }
+body = { fg = "#f2f4f8" }
+list = { fg = "#a8a8a8" }
+btn_yes = { fg = "#161616", bg = "#ff7eb6", bold = true }
+btn_no = { fg = "#78a9ff", bg = "#262626" }
+btn_labels = [ "  [Y]es  ", "  (N)o  " ]
+[spot]
+border = { fg = "#78a9ff" }
+title = { fg = "#78a9ff" }
+tbl_col = { fg = "#3ddbd9" }
+tbl_cell = { fg = "#161616", bg = "#78a9ff" }
+[notify]
+title_info = { fg = "#78a9ff" }
+title_warn = { fg = "#ff832b" }
+title_error = { fg = "#ee5396" }
+icon_info = "●"
+icon_warn = "▲"
+icon_error = "✕"
+[pick]
+border = { fg = "#78a9ff" }
+active = { fg = "#78a9ff", bold = true }
+inactive = { fg = "#a8a8a8" }
+[input]
+border = { fg = "#ff7eb6" }
+title = { fg = "#78a9ff" }
+value = { fg = "#78a9ff" }
+selected = { fg = "#161616", bg = "#78a9ff" }
+[cmp]
+border = { fg = "#78a9ff" }
+active = { fg = "#161616", bg = "#78a9ff" }
+inactive = { fg = "#dde1e6" }
+icon_file = "·"
+icon_folder = "▸"
+icon_command = "▶"
+[tasks]
+border = { fg = "#78a9ff" }
+title = { fg = "#78a9ff" }
+hovered = { fg = "#78a9ff", bold = true }
+[help]
+on = { fg = "#78a9ff" }
+run = { fg = "#3ddbd9" }
+desc = { fg = "#dde1e6" }
+hovered = { fg = "#161616", bg = "#78a9ff", bold = true }
+footer = { fg = "#161616", bg = "#78a9ff" }
+[filetype]
+directory = { fg = "#78a9ff" }
+file = { fg = "#dde1e6" }
+rules = [
+ { mime = "image/*", fg = "#be95ff" },
+ { mime = "{audio,video}/*", fg = "#3ddbd9" },
+ { mime = "application/{zip,gzip,x-tar,x-7z-compressed,x-rar}", fg = "#ff832b" },
+ { mime = "text/*", fg = "#dde1e6" },
+ { url = "*.{ex,exs,heex,rs,py,lua,js,ts,tsx,kt,go,sh,fish}", fg = "#82cfff" },
+ { url = "*/", fg = "#78a9ff" },
+ { url = "*", fg = "#dde1e6" },
+]
+[icon]
+prepend_conds = [
+ { if = "dir", text = "▪", fg = "#78a9ff" },
+ { if = "link", text = "↗", fg = "#3ddbd9" },
+]

@@ -1,0 +1,86 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "ignore-gtk-theme": true,
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+  "control-center-margin-top": 0,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 0,
+  "control-center-width": 380,
+  "control-center-height": 560,
+  "notification-window-width": 400,
+  "timeout": 8,
+  "timeout-low": 5,
+  "timeout-critical": 0,
+  "fit-to-screen": false,
+  "keyboard-shortcuts": true,
+  "image-visibility": "never",
+  "relative-timestamps": true,
+  "notification-grouping": false,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "text-empty": "Nenhum aviso.",
+  "widgets": [
+    "title",
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "dnd",
+    "label#hoje",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Avisos",
+      "clear-all-button": true,
+      "button-text": "Limpar tudo"
+    },
+    "dnd": {
+      "text": "Não perturbe"
+    },
+    "volume": {
+      "label": "vol",
+      "show-per-app": false
+    },
+    "backlight": {
+      "label": "bri",
+      "device": "intel_backlight"
+    },
+    "label#hoje": {
+      "text": "hoje",
+      "max-lines": 1
+    },
+    "buttons-grid": {
+      "buttons-per-row": 4,
+      "actions": [
+        {
+          "label": "wi-fi",
+          "command": "~/.config/carbon/scripts/radio wifi",
+          "type": "toggle",
+          "update-command": "~/.config/carbon/scripts/radio wifi status"
+        },
+        {
+          "label": "bt",
+          "command": "~/.config/carbon/scripts/radio bt",
+          "type": "toggle",
+          "update-command": "~/.config/carbon/scripts/radio bt status"
+        },
+        {
+          "label": "foco",
+          "command": "~/.config/carbon/control focus",
+          "type": "toggle",
+          "update-command": "~/.config/carbon/control focus-status"
+        },
+        {
+          "label": "mudo",
+          "command": "~/.config/carbon/control volume --toggle",
+          "type": "toggle",
+          "update-command": "pamixer --get-mute"
+        }
+      ]
+    }
+  },
+  "transition-time": 150
+}

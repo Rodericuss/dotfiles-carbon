@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+import datetime,json
+now=datetime.datetime.now();days=['seg','ter','qua','qui','sex','sáb','dom'];months=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+date=f'{days[now.weekday()]} {now.day:02} {months[now.month-1]}'
+print(json.dumps({'text':f'<span foreground="#a8a8a8">{date}</span>  {now:%H:%M}','tooltip':now.strftime('%d/%m/%Y')+' · painel, tarefas e timer'}))

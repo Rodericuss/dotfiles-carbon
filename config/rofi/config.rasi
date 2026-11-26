@@ -1,0 +1,135 @@
+/* Carbon g100 launcher: search field with bottom rule, menu rows on layer 01,
+   mode switcher as Carbon tabs (2px blue rule under the selected one). */
+configuration {
+    modi: "drun,run,window";
+    font: "IBM Plex Sans 11";
+    show-icons: false;
+    display-drun: "aplicativos";
+    display-run: "executar";
+    display-window: "janelas";
+    drun-display-format: "{name}";
+    sidebar-mode: true;
+    kb-mode-next: "Tab,Control+Tab";
+    kb-mode-previous: "ISO_Left_Tab,Control+ISO_Left_Tab";
+    kb-row-tab: "";
+    kb-element-next: "";
+    kb-element-prev: "";
+}
+* {
+    bg: #262626;
+    field: #393939;
+    fg: #f2f4f8;
+    dim: #a8a8a8;
+    faint: #6f6f6f;
+    rule: #393939;
+    blue: #78a9ff;
+    background-color: @bg;
+    text-color: @fg;
+    border-radius: 0;
+}
+window {
+    width: 640px;
+    border: 0;
+    padding: 0;
+    location: center;
+    anchor: center;
+    background-color: @bg;
+}
+mainbox {
+    children: [mode-switcher, inputbar, listview, textbox-footer];
+    spacing: 0;
+}
+mode-switcher {
+    spacing: 0;
+    border: 0 0 1px;
+    border-color: @rule;
+}
+button {
+    padding: 10px 16px;
+    text-color: @dim;
+    font: "IBM Plex Mono 10";
+    border: 0 0 2px;
+    border-color: @bg;
+    horizontal-align: 0;
+}
+button selected, button selected.normal {
+    background-color: @bg;
+    text-color: @fg;
+    border-color: @blue;
+}
+inputbar {
+    children: [textbox-prompt-colon, entry];
+    margin: 16px 16px 8px;
+    padding: 12px 16px;
+    spacing: 12px;
+    background-color: @field;
+    border: 0 0 1px;
+    border-color: @faint;
+}
+textbox-prompt-colon {
+    str: "❯";
+    font: "IBM Plex Mono 11";
+    background-color: inherit;
+    text-color: @blue;
+}
+entry {
+    background-color: inherit;
+    text-color: @fg;
+    cursor-color: @fg;
+    placeholder: "pesquisar";
+    placeholder-color: @faint;
+}
+listview {
+    lines: 8;
+    fixed-height: true;
+    scrollbar: false;
+    spacing: 0;
+    padding: 0 0 8px;
+    border: 0;
+}
+element {
+    padding: 10px 16px;
+    spacing: 12px;
+    border: 0 0 0 3px;
+    border-color: @bg;
+}
+element normal.normal, element alternate.normal, element normal.active, element alternate.active {
+    background-color: @bg;
+    text-color: @fg;
+}
+element selected.normal, element selected.active {
+    background-color: @field;
+    text-color: @fg;
+    border-color: @blue;
+}
+element normal.urgent, element alternate.urgent {
+    background-color: @bg;
+    text-color: #ee5396;
+}
+element selected.urgent {
+    background-color: @field;
+    text-color: #ee5396;
+    border-color: #ee5396;
+}
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+message {
+    border: 1px 0 0;
+    border-color: @rule;
+    padding: 10px 16px;
+}
+textbox {
+    text-color: @dim;
+    font: "IBM Plex Mono 9";
+}
+textbox-footer {
+    expand: false;
+    str: "↵ abrir · tab trocar modo · esc fechar";
+    padding: 10px 16px;
+    border: 1px 0 0;
+    border-color: @rule;
+    text-color: @faint;
+    font: "IBM Plex Mono 9";
+}

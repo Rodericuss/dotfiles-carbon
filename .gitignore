@@ -1,0 +1,10 @@
+# Private screenshot iterations
+/*.png
+/screenshots/
+# Machine-specific generated bases are never distributed
+/config/hypr/hyprland.lua
+/config/kitty/kitty.conf
+__pycache__/
+*.pyc
+.env
+*.log

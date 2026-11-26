@@ -1,0 +1,81 @@
+/* Carbon g100 dashboard. Tiles on layer 01, no borders or shadows, 1px rules,
+   Plex Sans for content, Plex Mono for labels and data. */
+* { font-family: "IBM Plex Sans", sans-serif; font-size: 14px; color: #f2f4f8; border-radius: 0; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+window { background: transparent; }
+.surface { background: #161616; padding: 24px; border: 1px solid #393939; }
+.card { background: #262626; padding: 16px; border: 0; }
+.timer-card { border-top: 2px solid #be95ff; }
+.media-card { border-top: 2px solid #3ddbd9; }
+.clock-card { border-top: 2px solid #78a9ff; }
+.heading { font-family: "IBM Plex Mono", monospace; color: #a8a8a8; font-size: 12px; font-weight: 400; }
+.muted { color: #a8a8a8; font-size: 12px; font-family: "IBM Plex Mono", monospace; }
+.brand { font-weight: 600; font-size: 14px; color: #f2f4f8; }
+.clock { color: #f2f4f8; font-size: 96px; font-weight: 300; letter-spacing: -1px; }
+.stats { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: #c6c6c6; padding: 8px 0 0; border-top: 1px solid #393939; }
+.timer { color: #f2f4f8; font-size: 54px; font-weight: 300; font-family: "IBM Plex Mono", monospace; }
+
+/* buttons: primary (blue 60), secondary (gray), ghost; 32px small, text left aligned */
+button { background: #393939; background-image: none; border: 0; padding: 7px 12px; color: #f2f4f8; font-size: 13px; min-height: 0; }
+button label { color: inherit; }
+button:hover { background: #4c4c4c; }
+button:active { background: #6f6f6f; }
+button:focus { outline: 2px solid #f2f4f8; outline-offset: -2px; }
+button.primary { background: #78a9ff; }
+button.primary label { color: #161616; }
+button.primary:hover { background: #a6c8ff; }
+button.primary:active { background: #33b1ff; }
+button.secondary { background: #6f6f6f; }
+button.secondary:hover { background: #606060; }
+button.ghost { background: transparent; color: #78a9ff; }
+button.ghost label { color: #78a9ff; }
+button.ghost:hover { background: #333333; }
+button.ghost:hover label { color: #a6c8ff; }
+button.small { background: transparent; font-family: "IBM Plex Mono", monospace; font-size: 12px; padding: 5px 8px; color: #c6c6c6; border-bottom: 2px solid transparent; }
+button.small label { font-size: 12px; color: #c6c6c6; }
+button.small:hover { background: #333333; }
+
+/* progress: 4px bar, blue fill on layer 02 */
+progressbar trough { background: #393939; min-height: 4px; border: 0; }
+progressbar progress { background: #78a9ff; border: 0; min-height: 4px; }
+.timer-card progressbar progress { background: #be95ff; }
+.media-card progressbar progress { background: #3ddbd9; }
+
+.cover { background: #161616; min-height: 64px; color: #6f6f6f; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+.song { color: #f2f4f8; font-size: 16px; font-weight: 600; }
+
+/* structured list: rows separated by 1px rules */
+.task-row { padding: 6px 0; border-bottom: 1px solid #393939; }
+.task-name { font-size: 14px; color: #f2f4f8; }
+.done { color: #6f6f6f; text-decoration-line: line-through; }
+.empty-tasks { color: #a8a8a8; padding: 24px 0; }
+button.delete { background: transparent; border: 0; padding: 2px 8px; color: #6f6f6f; }
+button.delete label { color: #6f6f6f; }
+button.delete:hover label { color: #ee5396; }
+checkbutton { padding: 0; }
+checkbutton check { background: transparent; border: 1px solid #f2f4f8; min-width: 14px; min-height: 14px; color: #161616; }
+checkbutton check:checked { background: #f2f4f8; border-color: #f2f4f8; }
+
+/* text input: field on layer 02 with a bottom rule; focus is a 2px white outline */
+entry { background: #393939; border: 0; border-bottom: 1px solid #6f6f6f; padding: 9px 16px; color: #f2f4f8; caret-color: #f2f4f8; font-family: "IBM Plex Sans", sans-serif; }
+entry:focus { box-shadow: inset 0 0 0 2px #f2f4f8; border-bottom-color: transparent; }
+entry placeholder, entry.placeholder { color: #6f6f6f; }
+
+/* calendar */
+.weekday { color: #6f6f6f; font-size: 12px; font-family: "IBM Plex Mono", monospace; }
+.day { padding: 6px; color: #c6c6c6; font-size: 13px; font-family: "IBM Plex Mono", monospace; }
+.today { background: #78a9ff; color: #161616; font-weight: 600; }
+
+.footer { margin-top: 8px; padding-top: 12px; border-top: 1px solid #393939; }
+scrollbar { background: transparent; }
+scrollbar slider { background: #525252; min-width: 4px; }
+
+/* volume OSD: a toast on layer 02 */
+.osd { background: #393939; padding: 16px; border-left: 3px solid #78a9ff; }
+.osd-value { color: #f2f4f8; font-size: 20px; font-weight: 300; font-family: "IBM Plex Mono", monospace; }
+
+/* focus HUD */
+.focus-hud { background: #262626; }
+.focus-tag { color: #161616; background: #78a9ff; padding: 8px 12px; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+.hud-time { color: #f2f4f8; padding: 0 12px; font-family: "IBM Plex Mono", monospace; }
+
+button, entry { min-height: 0; min-width: 0; }

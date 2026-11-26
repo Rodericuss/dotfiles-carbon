@@ -1,0 +1,49 @@
+onboarding = false
+[keys]
+prefix = "ctrl+s"
+
+# Workspaces
+switch_workspace = "prefix+shift+1..9"
+
+# Tabs
+switch_tab = "prefix+1..9"
+
+# Nice extras
+new_workspace = "prefix+shift+n"
+workspace_picker = ["prefix+w", "prefix+a"]
+
+new_tab = "prefix+c"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+
+reload_config = "prefix+shift+r"
+detach = "prefix+q"
+help = "prefix+?"
+
+[ui]
+agent_panel_sort = "spaces"
+show_agent_labels_on_pane_borders = true
+prompt_new_workspace_name = true
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+# Carbon / Oxocarbon. Supported custom tokens; preserve existing keys/session settings.
+[theme.custom]
+panel_bg = "#161616"
+surface0 = "#262626"
+surface1 = "#393939"
+surface_dim = "#262626"
+overlay0 = "#6f6f6f"
+overlay1 = "#a8a8a8"
+text = "#f2f4f8"
+subtext0 = "#a8a8a8"
+accent = "#78a9ff"
+mauve = "#be95ff"
+green = "#42be65"
+yellow = "#ff832b"
+red = "#ee5396"
+blue = "#78a9ff"
+teal = "#3ddbd9"
+peach = "#ff7eb6"

@@ -1,0 +1,76 @@
+@import url("/etc/xdg/swaync/style.css");
+/* Oxocarbon / Carbon g100 notifications: toasts on layer 02 with a 3px status rule on the left,
+   panel on layer 01, square everywhere except the toggle pills. */
+:root { --cc-bg:#262626; --text-color:#f2f4f8; --text-color-disabled:#6f6f6f; --border-radius:0px; --notification-shadow:none; --noti-bg:57,57,57; --noti-bg-alpha:1; --noti-bg-hover:#4c4c4c; --noti-bg-focus:#4c4c4c; --noti-border-color:#393939; --font-size-body:13px; --font-size-summary:14px; }
+* { font-family: "IBM Plex Sans", sans-serif; font-size: 13px; border-radius: 0; text-shadow: none; box-shadow: none; }
+
+/* panel */
+.control-center { background: #262626; color: #f2f4f8; border: 0; border-left: 1px solid #393939; border-bottom: 1px solid #393939; padding: 16px; }
+.control-center .control-center-list { background: transparent; }
+.control-center .control-center-list-placeholder { color: #6f6f6f; }
+.control-center .control-center-list-placeholder image { -gtk-icon-size: 24px; opacity: 0.25; }
+.widget { margin: 0; padding: 0; }
+
+/* title */
+.widget-title { margin: 0 0 16px; }
+.widget-title > label { color: #f2f4f8; font-size: 16px; font-weight: 600; }
+.widget-title > button { background: transparent; color: #78a9ff; border: 0; font-size: 13px; padding: 4px 8px; min-width: 0; }
+.widget-title > button:hover { background: #333333; color: #a6c8ff; }
+
+/* quick toggles: tiles on layer 02, blue rule on the bottom when on */
+.widget-buttons-grid { padding: 0 0 16px; }
+.widget-buttons-grid flowbox { margin: 0; }
+.widget-buttons-grid flowboxchild { padding: 0; margin: 0 1px 0 0; }
+.widget-buttons-grid flowboxchild > button { background: #393939; color: #a8a8a8; border: 0; border-bottom: 2px solid #393939; padding: 12px 0; min-width: 0; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+.widget-buttons-grid flowboxchild > button label { color: inherit; }
+.widget-buttons-grid flowboxchild > button:hover { background: #4c4c4c; color: #f2f4f8; }
+.widget-buttons-grid flowboxchild > button.toggle:checked { background: #393939; color: #f2f4f8; border-bottom-color: #78a9ff; }
+
+/* sliders: 2px track, filled in blue, square thumb */
+.widget-volume, .widget-backlight { background: transparent; padding: 0; margin: 0 0 8px; }
+.widget-volume label, .widget-backlight label { color: #a8a8a8; font-family: "IBM Plex Mono", monospace; font-size: 12px; min-width: 36px; }
+.widget-volume > box > button { opacity: 0; min-width: 0; padding: 0; }
+scale { padding: 0 4px; margin: 0; }
+scale trough { min-height: 2px; border: 0; background: #393939; }
+scale highlight { min-height: 2px; border: 0; background: #78a9ff; }
+scale slider { background: #f2f4f8; border: 0; min-width: 12px; min-height: 12px; margin: -5px 0; padding: 0; border-radius: 0; box-shadow: none; }
+scale value { color: #f2f4f8; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+
+/* "hoje" section header */
+.widget-label { margin: 16px 0 4px; padding-top: 12px; border-top: 1px solid #393939; }
+.widget-label > label { color: #a8a8a8; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+
+/* notifications */
+.notification-row { outline: none; background: transparent; }
+.notification-row:focus .notification { box-shadow: inset 0 0 0 2px #f2f4f8; }
+.notification-row .notification-background { padding: 0; margin: 4px 0; }
+.notification-row .notification-background .notification { background: #393939; border: 0; border-left: 3px solid #78a9ff; padding: 0; margin: 0; }
+.notification-row .notification-background .notification:hover { background: #4c4c4c; }
+.notification-row .notification-background .notification .notification-default-action,
+.notification-row .notification-background .notification .notification-default-action:hover { background: transparent; padding: 12px 16px; }
+.notification-content { background: transparent; padding: 0; }
+.notification-content .app-icon, .notification-content .image { -gtk-icon-size: 0; min-width: 0; min-height: 0; margin: 0; opacity: 0; }
+.summary { color: #f2f4f8; font-size: 14px; font-weight: 600; }
+.body { color: #c6c6c6; font-size: 13px; }
+.time { color: #a8a8a8; font-family: "IBM Plex Mono", monospace; font-size: 11px; margin-right: 18px; }
+.notification.low { border-left-color: #6f6f6f; }
+.notification.critical { border-left-color: #ee5396; }
+.notification.critical .summary { color: #f2f4f8; }
+.notification-action { background: transparent; color: #78a9ff; border: 0; border-top: 1px solid #4c4c4c; padding: 8px; }
+.notification-action:hover { background: #4c4c4c; color: #a6c8ff; }
+.close-button { background: transparent; color: #a8a8a8; border: 0; min-width: 16px; min-height: 16px; margin: 6px; }
+.close-button:hover { color: #f2f4f8; background: #4c4c4c; }
+
+/* floating toasts */
+.floating-notifications .notification { background: #393939; border-left: 3px solid #78a9ff; }
+
+/* do not disturb: Carbon toggle (the one rounded shape) */
+.widget-dnd { margin: 12px 0 0; padding: 12px 0 2px; border-top: 1px solid #393939; min-height: 24px; }
+.widget-dnd > label { color: #f2f4f8; font-size: 13px; }
+.widget-dnd switch { background: #6f6f6f; border: 0; min-width: 40px; min-height: 20px; padding: 2px; border-radius: 12px; }
+.widget-dnd switch:checked { background: #42be65; }
+.widget-dnd switch slider { background: #f2f4f8; border-radius: 10px; min-width: 18px; min-height: 18px; }
+
+/* no visible scrollbar; the wheel still scrolls */
+scrollbar, scrollbar slider, scrollbar trough { opacity: 0; background: transparent; border: 0; min-width: 0; min-height: 0; margin: 0; padding: 0; }
+.blank-window { background: transparent; }
